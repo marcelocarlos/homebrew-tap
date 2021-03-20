@@ -28,6 +28,7 @@ jobs:
           git add Formula/${{ github.event.client_payload.formula }}.rb
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git checkout -b '${{ github.event.client_payload.formula }}-${{ github.event.client_payload.version }}'
           git commit -m 'Update ${{ github.event.client_payload.formula }} formula to version ${{ github.event.client_payload.version }}'
           git push origin '${{ github.event.client_payload.formula }}-${{ github.event.client_payload.version }}'
 
