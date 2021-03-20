@@ -5,23 +5,23 @@ class Datasubst < Formula
 
   if OS.mac? && Hardware::CPU.intel?
     url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.2.1/datasubst-v0.2.1-darwin-amd64.tar.gz'
-    sha256 'a0c68f7ef8875d9be62b545bdc1478a51df5922c3fac25db440cd230342a0331'
+    sha256 '9f9f7cde69736e47682f2a0daa3ed09baf36f77250e5bea19f8497e29841fd4f'
   end
   if OS.mac? && Hardware::CPU.arm?
     url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.2.1/datasubst-v0.2.1-darwin-arm64.tar.gz'
-    sha256 '95309fdf74fcc1dc6b5cd42b083722c4c227f66731737eeb94b9f1b14731979a'
+    sha256 '6d595c26378f97d98a413d49c4beaea8304f4d5d1974532551fa4ca4da3976ff'
   end
   if OS.linux? && Hardware::CPU.intel?
     url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.2.1/datasubst-v0.2.1-linux-amd64.tar.gz'
-    sha256 'e0dbf313e683bb3ffdeb524babd1dc0aa94b29a5cd7bc61f590c805e93f4d67a'
+    sha256 'c0d89725894c1a3b9cf5b2cc7d27b337cd941942cf52ea21333eb7c5e0ecb8d4'
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
     url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.2.1/datasubst-v0.2.1-linux-arm.tar.gz'
-    sha256 'af9865fb008a9c0f0dc20dc24b7d9b15fec33795de8b90bb8933f93ebae4beda'
+    sha256 '5a0d8486de230b9eb3c9e43d5346b76318bacf755a051f01822f50aeb70a197b'
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
     url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.2.1/datasubst-v0.2.1-linux-arm64.tar.gz'
-    sha256 '92ab13f5fc4bb452e9b13bb1d6e7fe6704714b07febc679b15fe27de2c4dc27e'
+    sha256 ''
   end
 
   def install
