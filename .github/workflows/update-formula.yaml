@@ -33,6 +33,5 @@ jobs:
           git push origin '${{ github.event.client_payload.formula }}-${{ github.event.client_payload.version }}'
 
           gh pr create \
-            -a '@marcelocarlos' \
             --title 'Update ${{ github.event.client_payload.formula }} formula to version ${{ github.event.client_payload.version }}' \
             --body 'Update ${{ github.event.client_payload.formula }} formula to version ${{ github.event.client_payload.version }}'
