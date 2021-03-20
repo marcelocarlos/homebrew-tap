@@ -1,0 +1,37 @@
+name: Deploy
+on:
+  repository_dispatch:
+    types: ["formula_update"]
+
+jobs:
+  formula_update:
+    name: Formula Update
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Update formula
+        run: |
+          sed -e 's/__VERSION__/${{ github.event.client_payload.version }}/g' \
+              -e 's/__SHA256_DARWIN_AMD64__/${{ github.event.client_payload.sha256_darwin_amd64 }}/g' \
+              -e 's/__SHA256_DARWIN_ARM64__/${{ github.event.client_payload.sha256_darwin_arm64 }}/g' \
+              -e 's/__SHA256_LINUX_AMD64__/${{ github.event.client_payload.sha256_linux_amd64 }}/g' \
+              -e 's/__SHA256_LINUX_ARM__/${{ github.event.client_payload.sha256_linux_arm }}/g' \
+              -e 's/__SHA256_LINUX_ARM64__/${{ github.event.client_payload.sha256_linux_arm64 }}/g' \
+              templates/${{ github.event.client_payload.formula }}.rb.tpl > Formula/${{ github.event.client_payload.formula }}.rb
+
+      - name: Create Pull Request
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          git add Formula/${{ github.event.client_payload.formula }}.rb
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m 'Update ${{ github.event.client_payload.formula }} formula to version ${{ github.event.client_payload.version }}'
+          git push origin '${{ github.event.client_payload.formula }}-{{ github.event.client_payload.version }}'
+
+          gh pr create \
+            -a '@marcelocarlos' \
+            --title 'Update ${{ github.event.client_payload.formula }} formula to version ${{ github.event.client_payload.version }}' \
+            --body 'Update ${{ github.event.client_payload.formula }} formula to version ${{ github.event.client_payload.version }}'
