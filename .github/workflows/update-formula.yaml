@@ -1,11 +1,11 @@
-name: Deploy
+name: Formula Update
 on:
   repository_dispatch:
     types: ["formula_update"]
 
 jobs:
   formula_update:
-    name: Formula Update
+    name: Update and Raise PR
     runs-on: ubuntu-18.04
     steps:
       - name: Check out code
