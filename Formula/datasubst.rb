@@ -1,27 +1,27 @@
 class Datasubst < Formula
   desc 'A simple go template based tool based that uses structured data such as JSON and YAML as data sources.'
   homepage 'https://github.com/marcelocarlos/datasubst'
-  version '0.6.0'
+  version '0.7.0'
 
   if OS.mac? && Hardware::CPU.intel?
-    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.6.0/datasubst-v0.6.0-darwin-amd64.tar.gz'
-    sha256 'fcf47b87924af051aae5577bdfcdcbe254a5d96eb5f509397a06cc379dd36c8a'
+    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.7.0/datasubst-v0.7.0-darwin-amd64.tar.gz'
+    sha256 'd72a6647f9a154b398d845ae2808b3b9a417af45c4a411205ae572cc74bd9000'
   end
   if OS.mac? && Hardware::CPU.arm?
-    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.6.0/datasubst-v0.6.0-darwin-arm64.tar.gz'
-    sha256 'ffdfc966932bb7c058867905082b9ba217232ceae88023cce7605dfbd7c36967'
+    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.7.0/datasubst-v0.7.0-darwin-arm64.tar.gz'
+    sha256 'ed4b86ee3ba22719188ecbc0eefe5ea5b2733c4bbad7432afaa9dfaacade136e'
   end
   if OS.linux? && Hardware::CPU.intel?
-    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.6.0/datasubst-v0.6.0-linux-amd64.tar.gz'
-    sha256 'a3cdddafdf22a1e1767d3b8ed0d4ac4fc64925fe9bad02a98df661b10f4eadc7'
+    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.7.0/datasubst-v0.7.0-linux-amd64.tar.gz'
+    sha256 'b6b983d8945e6e212b0f0b2dafbe942b5fdc08464276d1b906031709e074179a'
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.6.0/datasubst-v0.6.0-linux-arm.tar.gz'
-    sha256 'dfb1d5173cf558031a47a06731aa612aafbbe7cd980638ee4b0d2fcc5953d1ca'
+    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.7.0/datasubst-v0.7.0-linux-arm.tar.gz'
+    sha256 'edf73fc69d3793ca4838ce4221bd06e2c9e3bfcc1779b5df702d00067dcc87e5'
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.6.0/datasubst-v0.6.0-linux-arm64.tar.gz'
-    sha256 '550fa2c71a86817b8836d2b333a73c45a16daee7da1cf45796ea5e1574728413'
+    url 'https://github.com/marcelocarlos/datasubst/releases/download/v0.7.0/datasubst-v0.7.0-linux-arm64.tar.gz'
+    sha256 'c24f8514bf18f4b2527b09eeb6b8f37cb5cc50169ed992c4813bd0c666e35a42'
   end
 
   def install
